@@ -48,8 +48,10 @@
 
             setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/messages', function(messageOutput) {
-
+            // stompClient.subscribe('/topic/messages', function(messageOutput) {
+            //     showMessageOutput(JSON.parse(messageOutput.body));
+            // });
+            stompClient.subscribe('/user/queue/reply', function(messageOutput) {
                 showMessageOutput(JSON.parse(messageOutput.body));
             });
         });
